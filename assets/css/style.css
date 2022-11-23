@@ -1,7 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Satisfy&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 body {
     background-color: pink;
+    font-family: 'Bree Serif', sans-serif;
+}
+
+h1 {
+    font-family: Satisfy, sans-serif;
 }
 
 .heading {
     text-align: center;
+    text-shadow: 20px;
+    font-size: 48px;
+    background-color: bisque;
+}
+
+.container {
+    color: white;
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    padding: 40px;
+}
+
+#start-btn {
+    width: 40%;
+    text-align: center;
+    margin: 4px 4px;
+    color: blue;
+    background-color: bisque;
+    border-radius: 2px;
+}
+
+.display{
+    display: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items:center;
+    justify-content: space-around
 }

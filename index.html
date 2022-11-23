@@ -16,35 +16,36 @@
         <h1 class="heading">Disney Quiz</h1>
     </header>
 
-    <div id="start-container">
+    <div class="container">
+        <div id="start-container">
+            <h2>Are you ready to start your quiz?</h2>
+            <form action="">
+                <input type="text" name="username" id="username">
+                <button id="start-btn">Start Game</button>
+            </form>
 
-        <form action="">
-            <input type="text" name="username" id="username">
-            <button>Start game</button>
-        </form>
-       
-    </div>
-
-    <div id="game-container">
-
-        <div id="question-area">
-            Questions
         </div>
-        <div id="Answers">
-            Answers
-            <button class="answer-btn">Option 1</button>
-            <button class="answer-btn">Option 2</button>
-            <button class="answer-btn">Option 3</button>
-            <button class="answer-btn">Option 4</button>
+
+        <div id="container" class="display">
+
+            <div id="question-area">
+                Questions
+            </div>
+            <div id="answers">
+                Answers
+                <button class="answer-btn">Option 1</button>
+                <button class="answer-btn">Option 2</button>
+                <button class="answer-btn">Option 3</button>
+                <button class="answer-btn">Option 4</button>
+            </div>
+            <div class="next-btn">Next</div>
         </div>
-        <div class="next-btn">Next</div>
-    </div>
 
-    <div id="score-page">
-        Score
-        <button>Play Again</button>
+        <div id="score-page" class="display">
+            Score
+            <button>Play Again</button>
+        </div>
     </div>
-
 
     <footer>
         <p>LinkedIn</p>

@@ -99,4 +99,4 @@ const quizQuestions = [{
         {option: "Tinker Bell"}
     ],
     correctAnswer: "Tinker Bell"
-}]
+}];
