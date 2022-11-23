@@ -72,8 +72,26 @@ form {
 
 footer {
     position: absolute;
-    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.social-networks {
+    text-align: center;
     display: flex;
-    align-items:center;
-    justify-content: space-around
+    justify-content: space-around;
+}
+
+.social-networks li {
+    display: inline;
+    justify-content: center;
+}
+
+.social-networks i {
+    color: black;
+    font-size: 30px;
 }
