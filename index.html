@@ -17,7 +17,7 @@
     </header>
 
     <div class="container">
-        <div id="start-container">
+        <div id="start-container" class="display">
             <h2>Are you ready to start your quiz?</h2>
             <div id="startup-img"></div>
             <form action="">
@@ -27,24 +27,27 @@
 
         </div>
 
-        <div id="container" class="display">
-
+        <div id="quiz-container">
+            <div id="progress">Progress Bar
+                <div id="progress-bar"></div>
+            </div>
             <div id="question-area">
                 Questions
             </div>
             <div id="answers">
-                Answers
-                <button class="answer-btn">Option 1</button>
-                <button class="answer-btn">Option 2</button>
-                <button class="answer-btn">Option 3</button>
-                <button class="answer-btn">Option 4</button>
+                <button class="answer-btn btn" data-number="1">Option 1</button>
+                <button class="answer-btn btn" data-number="2">Option 2</button>
+                <button class="answer-btn btn" data-number="3">Option 3</button>
+                <button class="answer-btn btn" data-number="4">Option 4</button>
             </div>
-            <div class="next-btn">Next</div>
+            <div id="next">
+                <button class="btn">Next</button>
+            </div>
         </div>
 
         <div id="score-page" class="display">
             Score
-            <button>Play Again</button>
+            <button class="btn">Play Again</button>
         </div>
     </div>
 

@@ -45,11 +45,19 @@ h1 {
 
 .btn {
     width: 40%;
+    height: auto;
     text-align: center;
-    margin: 4px 4px;
+    margin: 10px 5px;
+    padding: 10px;
     color: blue;
     background-color: bisque;
     border-radius: 2px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px rgba(0 0 0/ 0.5);
+    transform: scale(1.1)
 }
 
 form {
@@ -60,14 +68,35 @@ form {
 
 #username {
     border-radius: 5px;
+    border: solid rgb(201, 63, 86);
     display: block;
     text-align: center;
     width: 50%;
-    height: 15px;
+    height: 20px;
 }
 
 .display{
     display: none;
+}
+
+/* quiz questions and answers styling */
+#answers{
+    display:flex;
+    align-content:center;
+    justify-content: space-between;
+}
+
+.answer-btn {
+    font-size: 18px;
+    margin: 10px 10px;
+    padding: 5px;
+    min-width: fit-content;
+}
+
+#next {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 footer {
