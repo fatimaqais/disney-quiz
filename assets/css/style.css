@@ -33,13 +33,37 @@ h1 {
     padding: 40px;
 }
 
-#start-btn {
+#startup-img {
+    background: url(../images/walt-disney-studios.webp) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.btn {
     width: 40%;
     text-align: center;
     margin: 4px 4px;
     color: blue;
     background-color: bisque;
     border-radius: 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#username {
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    width: 50%;
+    height: 15px;
 }
 
 .display{
