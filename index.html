@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- font awesome script -->
+    <script src="https://kit.fontawesome.com/a453e46d2a.js" crossorigin="anonymous"></script>"
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Disney Quiz</title>
 </head>
@@ -17,23 +19,21 @@
     </header>
 
     <div class="container">
-        <div id="start-container" class="display">
+        <div id="start-container">
             <h2>Are you ready to start your quiz?</h2>
             <div id="startup-img"></div>
-            <form action="">
+            <form>
                 <input type="text" name="username" id="username">
-                <button class="btn">Start Game</button>
+                <button id="start-btn" class="btn">Start Game</button>
             </form>
 
         </div>
 
-        <div id="quiz-container">
+        <div id="quiz-container" class="display">
             <div id="progress">Progress Bar
                 <div id="progress-bar"></div>
             </div>
-            <div id="question-area">
-                Questions
-            </div>
+            <div id="question-area">Question</div>
             <div id="answers">
                 <button class="answer-btn btn" data-number="1">Option 1</button>
                 <button class="answer-btn btn" data-number="2">Option 2</button>
@@ -61,9 +61,6 @@
     <!--javascript files-->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/question.js"></script>
-
-    <!-- font awesome script -->
-    <script src="https://kit.fontawesome.com/a453e46d2a.js" crossorigin="anonymous"></script>"
 </body>
 
 </html>
