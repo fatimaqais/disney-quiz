@@ -1,7 +1,7 @@
 // getting the DOM elements
 let startButton = document.getElementById('start-btn');
 let startPage = document.getElementById('start-container');
-let user= document.getElementById('username');
+let userName= document.getElementById('username');
 let results = document.getElementById('score-page');
 let quizArea = document.getElementById('quiz-container');
 let displayQuestion = document.getElementById('question-area');
@@ -13,7 +13,7 @@ let optionC = document.getElementById('answer-c')
 let optionD = document.getElementById('answer-d')
 
 let selectedAnswer;
-let currentQuestionIndex;
+let currentQuestionIndex = 0;
 
 // start quiz event listener
 startButton = addEventListener('click', startQuiz)
@@ -22,14 +22,10 @@ startButton = addEventListener('click', startQuiz)
 function startQuiz() {
     console.log('started')
     startPage.classList.add('display')
-    currentQuestionIndex = 0;
     quizArea.classList.remove('display')
-    nextQuestion()
-}
-
-function nextQuestion(){
     showQuestions(quizQuestions[currentQuestionIndex]);
 }
+
 
 function showQuestions(question) {
     displayQuestion.innerText = question.question;
@@ -46,14 +42,11 @@ function showQuestions(question) {
 
 function pickAnswer(event) {
     console.log('selected answer')
-    selectedAnswer = e.target;
-    let userAnswer = selectedAnswer.innerText;
-    let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
-    if (userAnswer === rightAnswer) {
-        selectedAnswer.classList.add('correct');
-        score();
-        currentQuestionIndex++;
-    }
+}
+
+// when next button is clicked
+nextBtn.onclick = () =>{
+    currentQuestionIndex++;
 }
 
 //function score()
