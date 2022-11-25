@@ -11,10 +11,13 @@ let optionA = document.getElementById('answer-a');
 let optionB = document.getElementById('answer-b');
 let optionC = document.getElementById('answer-c');
 let optionD = document.getElementById('answer-d');
-let progressBar = document.getElementById('progress-bar')
+let progressBar = document.getElementById('progress-bar');
+let playAgainBtn = document.getElementById('play-again');
+let questionCounter = document.getElementById('question-counter')
 
 let selectedAnswer;
 let currentQuestionIndex = 0;
+let questionNumber = 1;
 
 // start quiz event listener
 startButton = addEventListener('click', startQuiz)
@@ -26,6 +29,7 @@ function startQuiz() {
     quizArea.classList.remove('display')
     if(currentQuestionIndex <= '9') {
         console.log('showing question')
+        questionCounter.innerText = questionNumber;
     } else {
         results.classList.remove('display')
         quizArea.classList.add('display')
@@ -56,8 +60,16 @@ function pickAnswer(event) {
 // when next button is clicked
 nextBtn.onclick = () => {
     currentQuestionIndex++;
+    questionNumber++;
 }
 
 function score() {
     
+}
+
+playAgainBtn.onclick = () => {
+    console.log('startPage')
+    startPage.classList.remove('display')
+    results.classList.add('display')
+    quizArea.classList.remove('display')
 }
