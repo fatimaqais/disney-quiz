@@ -27,7 +27,7 @@ function startQuiz() {
     console.log('started')
     startPage.classList.add('display')
     quizArea.classList.remove('display')
-    if(currentQuestionIndex <= '9') {
+    if (currentQuestionIndex <= '9') {
         console.log('showing question')
         questionCounter.innerText = questionNumber;
     } else {
@@ -47,14 +47,17 @@ function showQuestions(question) {
     optionC.innerText = question.answers[2].option;
     optionD.innerText = question.answers[3].option;
 
-    optionA.onclick = pickAnswer;
-    optionB.onclick = pickAnswer;
-    optionC.onclick = pickAnswer;
-    optionD.onclick = pickAnswer;
+    let selectedChoice = [
+        optionA.onclick = pickAnswer,
+        optionB.onclick = pickAnswer,
+        optionC.onclick = pickAnswer,
+        optionD.onclick = pickAnswer
+    ]
 }
 
-function pickAnswer(event) {
-    console.log('selected answer')
+function pickAnswer(option) {
+    selectedAnswer = option.textContent
+    console.log(selectedAnswer)
 }
 
 // when next button is clicked
@@ -64,12 +67,10 @@ nextBtn.onclick = () => {
 }
 
 function score() {
-    
+
 }
 
 playAgainBtn.onclick = () => {
     console.log('startPage')
-    startPage.classList.remove('display')
-    results.classList.add('display')
-    quizArea.classList.remove('display')
+    window.location.reload();
 }
