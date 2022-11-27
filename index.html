@@ -14,14 +14,15 @@
 
 <body>
 
-    <header>
-        <h1 class="heading">Disney Quiz</h1>
+    <header class="heading">
+        <h1>Disney Quiz</h1>
     </header>
 
     <div class="container">
         <div id="start-container" class="main-page">
             <h2>Are you ready to start your quiz?</h2>
             <div id="startup-img"></div>
+            <label for="username">Enter Username:</label>
             <input type="text" name="username" id="username">
             <div class="btn-position">
                 <button id="start-btn" class="btn">Start Game</button>
@@ -29,7 +30,7 @@
         </div>
 
         <div id="quiz-container" class="display">
-            <div id="progress">Progress Bar
+            <div id="progress" class="question-nmbr">Progress Bar
                 <div id="progress-bar"></div>
                 <div>
                     <p>Question</p><span id="question-counter"></span></span>
@@ -55,12 +56,12 @@
         </div>
     </div>
 
-    <footer>
+    <section id="footer">
         <ul class="social-networks">
             <li><a href="https://www.linkedin.com/in/fatima-qaiser/"><i class="fa-brands fa-linkedin"></i></a></li>
             <li><a href="https://github.com/fatimaqais"><i class="fa-brands fa-github"></i></a></li>
         </ul>
-    </footer>
+    </section>
 
     <!--javascript files-->
     <script src="assets/js/script.js"></script>
