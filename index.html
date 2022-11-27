@@ -23,14 +23,17 @@
             <h2>Are you ready to start your quiz?</h2>
             <div id="startup-img"></div>
             <input type="text" name="username" id="username">
-            <button id="start-btn" class="btn">Start Game</button>
-
+            <div>
+                <button id="start-btn" class="btn">Start Game</button>
+            </div>
         </div>
 
         <div id="quiz-container" class="display">
             <div id="progress">Progress Bar
                 <div id="progress-bar"></div>
-                <div><p>Question</p><span id="question-counter"></span></span></div>
+                <div>
+                    <p>Question</p><span id="question-counter"></span></span>
+                </div>
             </div>
             <div id="question-area">Question</div>
             <div id="answers">
@@ -39,13 +42,13 @@
                 <button class="answer-btn btn" id="answer-c">Option 3</button>
                 <button class="answer-btn btn" id="answer-d">Option 4</button>
             </div>
-            <div>
-                <button id="next" class="btn">Next</button>
+            <div id="next-container">
+                <button id="next" class="btn display">Next</button>
             </div>
         </div>
 
         <div id="score-page" class="display">
-            Score
+            <div id="score"></div>
             <button id="play-again" class="btn">Play Again</button>
         </div>
     </div>
