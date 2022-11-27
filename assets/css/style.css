@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Satisfy&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -43,8 +43,14 @@ h1 {
     margin: 20px auto;
 }
 
+.btn-position {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    width:500px;
+}
+
 .btn {
-    width: 40%;
     height: auto;
     text-align: center;
     margin: 10px 5px;
@@ -60,12 +66,6 @@ h1 {
     transform: scale(1.1)
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 #username {
     border-radius: 5px;
     border: solid rgb(201, 63, 86);
@@ -75,25 +75,34 @@ form {
     height: 20px;
 }
 
-.display{
+.display {
     display: none;
 }
 
 /* quiz questions and answers styling */
-#answers{
-    display:flex;
-    align-content:center;
-    justify-content: space-between;
+#answers {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .answer-btn {
+    width: 80%;
     font-size: 18px;
     margin: 10px 10px;
     padding: 5px;
-    min-width: fit-content;
 }
 
 #next {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+
+#play-again {
     display: flex;
     align-content: center;
     justify-content: space-evenly;
