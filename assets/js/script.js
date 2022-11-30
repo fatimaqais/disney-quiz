@@ -20,10 +20,11 @@ let score = document.getElementById('score');
 let currentQuestionIndex = 0;
 let questionNumber = 1;
 let userScore = 0;
+let selectedAnswer;
 
 // start quiz event listener
 startButton.onclick = () => {
-    startQuiz()
+    startQuiz();
 }
 
 //when start button is clicked
@@ -52,27 +53,38 @@ function showQuestions(question) {
 }
 
 function pickAnswer(event) {
-//    optionA.setAttribute('disabled', 'disabled');
-//    optionB.setAttribute('disabled', 'disabled');
-//    optionC.setAttribute('disabled', 'disabled');
-//    optionD.setAttribute('disabled', 'disabled'); 
-    let selectedAnswer = event.target;
+   // optionA.setAttribute('disabled', pickAnswer);
+    //optionB.setAttribute('disabled', pickAnswer);
+    //optionC.setAttribute('disabled', pickAnswer);
+    //optionD.setAttribute('disabled', pickAnswer);
+    selectedAnswer = event.target;
     let chosenAnswer = selectedAnswer.innerText;
     console.log(chosenAnswer)
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
     if (chosenAnswer === rightAnswer) {
         userScore += 2;
         showQuestions(quizQuestions[currentQuestionIndex]);
+        selectedAnswer.classList.add('correct-answer')
         console.log('correct answer')
+        nextBtn.removeAttribute('disabled', 'disabled')
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
+        selectedAnswer.classList.add('wrong-answer')
         console.log('wrong answer')
+        nextBtn.removeAttribute('disabled', 'disabled')
     }
+
     showQuestions(quizQuestions[currentQuestionIndex]);
 }
 
 // when next button is clicked
+
 nextBtn.onclick = () => {
+    next()
+    resetQuestionState();
+}
+
+function next(){
     currentQuestionIndex++;
     questionNumber++;
     if (currentQuestionIndex <= '9') {
@@ -86,6 +98,12 @@ nextBtn.onclick = () => {
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     score.innerText = userScore;
+}
+
+function resetQuestionState() {
+    console.log("reset")
+    selectedAnswer.classList.remove('correct-answer')
+    selectedAnswer.classList.remove('wrong-answer')
 }
 
 playAgainBtn.onclick = () => {
