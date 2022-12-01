@@ -17,6 +17,7 @@ let progressBar = document.getElementById('progress-bar');
 let playAgainBtn = document.getElementById('play-again');
 let questionCounter = document.getElementById('question-counter');
 let score = document.getElementById('score');
+let scoreMessage = document.getElementById('score-message');
 
 let currentQuestionIndex = 0;
 let questionNumber = 1;
@@ -130,6 +131,7 @@ function next(){
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     score.innerText = userScore;
+    finalScore()
 }
 
 function resetQuestionState() {
@@ -142,6 +144,16 @@ function resetQuestionState() {
     optionD.removeAttribute('disabled', 'disabled');
     nextBtn.classList.add('display')
 
+}
+
+// results page displaying user scare and play aging option
+function finalScore() {
+    //scoreMessage.innerText = `Congratulations ${user.value} you finale score is`
+    if (userScore <= 10) {
+        scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
+    } else {
+        scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`
+    }
 }
 
 playAgainBtn.onclick = () => {
