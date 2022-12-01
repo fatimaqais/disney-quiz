@@ -88,7 +88,7 @@ function pickAnswer(event) {
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
     if (chosenAnswer === rightAnswer) {
         userScore ++;
-        score.innerText = userScore;
+        score.innerText = `${userScore} / 10`;
         console.log(userScore)
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('correct-answer')
