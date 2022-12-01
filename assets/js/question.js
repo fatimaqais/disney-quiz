@@ -11,14 +11,14 @@ const quizQuestions = [{
     correctAnswer: 'Adora'
 },
 {
-    question: "Which one of the following is the famous dialogue of the evil queeen from Snow White?",
+    question: "What does the enchanted cake in 'Brave' turn Merida's mother into?",
     answers: [
-        {option: "Mirror mirror on the wall who's the fairest of them all?"},
-        {option: "Mirror mirror on the wall who's the fairest one of all?"},
-        {option: "Mirror mirror on the wall who's the fairest out of all?"},
-        {option: "Mirror mirror on the wall who's fairest of them all?"}
+        {option: "A Cat"},
+        {option: "A Bear"},
+        {option: "A Lion"},
+        {option: "A Snake"}
     ],
-    correctAnswer: "Mirror mirror on the wall who's the fairest one of all?"
+    correctAnswer: "A Bear"
 },
 {
     question: "What had Cinderella left behind at the ball?",
@@ -51,14 +51,14 @@ const quizQuestions = [{
     correctAnswer: "10,000 years"
 },
 {
-    question: "What name did Ursula use when she became a human in 'The Little Mermaid'",
+    question: "What name did Ursula use when she became a human in 'The Little Mermaid'?",
     answers: [
         {option: "Vanessa"},
         {option: "Alexis"},
         {option: "Cathy"},
         {option: "Bella"}
     ],
-    correctAnswer: "Venessa"
+    correctAnswer: "Vanessa"
 },
 {
     question: "How many dwarfs are there in Snow White?",
@@ -68,7 +68,7 @@ const quizQuestions = [{
         {option: "7"},
         {option: "10"}
     ],
-    correctAnswer: "10"
+    correctAnswer: "7"
 },
 {
     question: "What is the name of the princess in Aladdin?",
