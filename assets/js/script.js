@@ -87,7 +87,9 @@ function pickAnswer(event) {
     console.log(chosenAnswer)
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
     if (chosenAnswer === rightAnswer) {
-        userScore += 2;
+        userScore ++;
+        score.innerText = userScore;
+        console.log(userScore)
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('correct-answer')
         console.log('correct answer')
@@ -130,7 +132,6 @@ function next(){
         return (currentQuestionIndex)
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
-    score.innerText = userScore;
     finalScore()
 }
 
@@ -149,7 +150,7 @@ function resetQuestionState() {
 // results page displaying user scare and play aging option
 function finalScore() {
     //scoreMessage.innerText = `Congratulations ${user.value} you finale score is`
-    if (userScore <= 10) {
+    if (userScore < 5) {
         scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
     } else {
         scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`
