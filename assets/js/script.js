@@ -2,6 +2,7 @@
 let startButton = document.getElementById('start-btn');
 let startPage = document.getElementById('start-container');
 let userName = document.getElementById('username');
+let message = document.getElementById('message')
 let results = document.getElementById('score-page');
 let quizArea = document.getElementById('quiz-container');
 let displayQuestion = document.getElementById('question-area');
@@ -22,9 +23,34 @@ let questionNumber = 1;
 let userScore = 0;
 let selectedAnswer;
 
+
+// getting username and displaying messages
+let user = userName;
+let messageEmpty = "Please enter a username without using spaces or numbers";
+let characterMessage = "Username needs to be more than 3 characters";
+
+ // validating username
+
+function checkUser() {
+
+    var letters = /^[A-Za-z]+$/; //no blank spaces and numbers are accepted
+
+    if (!user.value.match(letters)) {
+        message.innerHTML = messageEmpty; 
+    } else if (user.value.length <= Number(3)) {
+        message.innerHTML = characterMessage;
+    } else if (user.value.length >= Number(3)){
+        console.log('hi')
+        startQuiz()
+    }
+
+}
+
 // start quiz event listener
 startButton.onclick = () => {
-    startQuiz();
+
+    checkUser();
+
 }
 
 //when start button is clicked
@@ -36,6 +62,8 @@ function startQuiz() {
     showQuestions(quizQuestions[currentQuestionIndex]);
     questionCounter.innerText = questionNumber;
     score.innerText = userScore;
+    nextBtn.classList.remove
+    ('display')
 }
 
 
@@ -53,10 +81,6 @@ function showQuestions(question) {
 }
 
 function pickAnswer(event) {
-   // optionA.setAttribute('disabled', pickAnswer);
-    //optionB.setAttribute('disabled', pickAnswer);
-    //optionC.setAttribute('disabled', pickAnswer);
-    //optionD.setAttribute('disabled', pickAnswer);
     selectedAnswer = event.target;
     let chosenAnswer = selectedAnswer.innerText;
     console.log(chosenAnswer)
@@ -66,12 +90,18 @@ function pickAnswer(event) {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('correct-answer')
         console.log('correct answer')
-        nextBtn.removeAttribute('disabled', 'disabled')
+        optionA.setAttribute('disabled', 'disabled');
+        optionB.setAttribute('disabled', 'disabled');
+        optionC.setAttribute('disabled', 'disabled');
+        optionD.setAttribute('disabled', 'disabled');
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('wrong-answer')
         console.log('wrong answer')
-        nextBtn.removeAttribute('disabled', 'disabled')
+        optionA.setAttribute('disabled', 'disabled');
+        optionB.setAttribute('disabled', 'disabled');
+        optionC.setAttribute('disabled', 'disabled');
+        optionD.setAttribute('disabled', 'disabled');
     }
 
     showQuestions(quizQuestions[currentQuestionIndex]);
@@ -90,10 +120,12 @@ function next(){
     if (currentQuestionIndex <= '9') {
         console.log('showing question')
         questionCounter.innerText = questionNumber;
+        nextBtn.classList.add('display')
     } else {
         results.classList.remove('display')
         quizArea.classList.add('display')
         console.log('showing result')
+        nextBtn.classList.add('display')
         return (currentQuestionIndex)
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
@@ -104,6 +136,12 @@ function resetQuestionState() {
     console.log("reset")
     selectedAnswer.classList.remove('correct-answer')
     selectedAnswer.classList.remove('wrong-answer')
+    optionA.removeAttribute('disabled', 'disabled');
+    optionB.removeAttribute('disabled', 'disabled');
+    optionC.removeAttribute('disabled', 'disabled');
+    optionD.removeAttribute('disabled', 'disabled');
+    nextBtn.classList.add('display')
+
 }
 
 playAgainBtn.onclick = () => {
