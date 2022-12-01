@@ -14,6 +14,7 @@ let optionB = document.getElementById('answer-b');
 let optionC = document.getElementById('answer-c');
 let optionD = document.getElementById('answer-d');
 let progressBar = document.getElementById('progress-bar');
+let timeLeft = document.getElementById('time')
 let playAgainBtn = document.getElementById('play-again');
 let questionCounter = document.getElementById('question-counter');
 let score = document.getElementById('score');
@@ -65,6 +66,7 @@ function startQuiz() {
     score.innerText = userScore;
     nextBtn.classList.remove
     ('display')
+    
 }
 
 
@@ -124,6 +126,7 @@ function next(){
         console.log('showing question')
         questionCounter.innerText = questionNumber;
         nextBtn.classList.add('display')
+        clearInterval(timer)
     } else {
         results.classList.remove('display')
         quizArea.classList.add('display')
@@ -133,6 +136,7 @@ function next(){
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     finalScore()
+    counter()
 }
 
 function resetQuestionState() {
@@ -147,9 +151,30 @@ function resetQuestionState() {
 
 }
 
+// code idea taken from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1
+//create a 15 second timer for each question
+const questionTime = 0;
+const barWidth = 150;
+let count = 10;
+const progressUnit = barWidth / 10;
+timer = setInterval(counter, 1000);
+
+function counter() {
+    if (count >= questionTime){
+        timeLeft.innerHTML = `Time Left: ${count}`;
+        progressBar.style.width = progressUnit * count + 'px';
+        count-- ;
+    }else if (questionTime === 0){
+        optionA.setAttribute('disabled', 'disabled');
+        optionB.setAttribute('disabled', 'disabled');
+        optionC.setAttribute('disabled', 'disabled');
+        optionD.setAttribute('disabled', 'disabled');
+        console.log('time is up')
+    }
+}
+
 // results page displaying user scare and play aging option
 function finalScore() {
-    //scoreMessage.innerText = `Congratulations ${user.value} you finale score is`
     if (userScore < 5) {
         scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
     } else {

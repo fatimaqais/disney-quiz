@@ -146,10 +146,27 @@ h1 {
     justify-content: space-evenly;
 }
 
+/* progress bar style */
 #progress {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
+
+#outer-style {
+    border: solid #150335;
+    border-radius: 7px;
+    width: 150px;
+    height: fit-content;
+}
+
+#progress-bar {
+    background-color: rgba(38, 64, 139, 0.8);
+    border-radius: 5px;
+    color: #150335;
+    height: 25px;
+}
+
 
 .question-nmbr {
     display: flex;
@@ -196,6 +213,6 @@ li {
 }
 
 .social-networks i {
-    color: black;
+    color: #150335;
     font-size: 30px;
 }
