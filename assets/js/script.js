@@ -31,17 +31,17 @@ let user = userName;
 let messageEmpty = "Please enter a username without using spaces or numbers";
 let characterMessage = "Username needs to be more than 3 characters";
 
- // validating username
+// validating username
 
 function checkUser() {
 
     var letters = /^[A-Za-z]+$/; //no blank spaces and numbers are accepted
 
     if (!user.value.match(letters)) {
-        message.innerHTML = messageEmpty; 
+        message.innerHTML = messageEmpty;
     } else if (user.value.length <= Number(3)) {
         message.innerHTML = characterMessage;
-    } else if (user.value.length >= Number(3)){
+    } else if (user.value.length >= Number(3)) {
         console.log('hi')
         startQuiz()
     }
@@ -64,9 +64,9 @@ function startQuiz() {
     showQuestions(quizQuestions[currentQuestionIndex]);
     questionCounter.innerText = questionNumber;
     score.innerText = userScore;
-    nextBtn.classList.remove
-    ('display')
-    
+    nextBtn.classList.remove('display')
+
+    count = 10;
 }
 
 
@@ -89,7 +89,7 @@ function pickAnswer(event) {
     console.log(chosenAnswer)
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
     if (chosenAnswer === rightAnswer) {
-        userScore ++;
+        userScore++;
         score.innerText = `${userScore} / 10`;
         console.log(userScore)
         showQuestions(quizQuestions[currentQuestionIndex]);
@@ -117,26 +117,32 @@ function pickAnswer(event) {
 nextBtn.onclick = () => {
     next()
     resetQuestionState();
+    setTimeout(() => {
+        if (count >= questionTime) {
+            timeLeft.innerHTML = `Time Left: ${count}`;
+            progressBar.style.width = progressUnit * count + 'px';
+            count--
+        }
+    }, 10);
 }
 
-function next(){
+function next() {
     currentQuestionIndex++;
     questionNumber++;
     if (currentQuestionIndex <= '9') {
         console.log('showing question')
         questionCounter.innerText = questionNumber;
-        nextBtn.classList.add('display')
-        clearInterval(timer)
+        //nextBtn.classList.add('display')
     } else {
         results.classList.remove('display')
         quizArea.classList.add('display')
         console.log('showing result')
-        nextBtn.classList.add('display')
+        //nextBtn.classList.add('display')
         return (currentQuestionIndex)
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     finalScore()
-    counter()
+    count = 10;
 }
 
 function resetQuestionState() {
@@ -152,26 +158,51 @@ function resetQuestionState() {
 }
 
 // code idea taken from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1
-//create a 15 second timer for each question
-const questionTime = 0;
+//create a 10 second timer for each question
+let questionTime = 0;
 const barWidth = 150;
 let count = 10;
 const progressUnit = barWidth / 10;
-timer = setInterval(counter, 1000);
 
-function counter() {
-    if (count >= questionTime){
+let counter = () => {
+    if (count >= questionTime) {
         timeLeft.innerHTML = `Time Left: ${count}`;
         progressBar.style.width = progressUnit * count + 'px';
-        count-- ;
-    }else if (questionTime === 0){
+        count--
+    } else if (questionTime === 0) {
+        timeLeft.innerHTML = "Time Up. Go to the next question!";
+        timeLeft.style.width = '150px';
         optionA.setAttribute('disabled', 'disabled');
         optionB.setAttribute('disabled', 'disabled');
         optionC.setAttribute('disabled', 'disabled');
         optionD.setAttribute('disabled', 'disabled');
         console.log('time is up')
+        clearInterval(counter)
     }
 }
+setInterval(counter, 1000);
+
+/** 
+function counter() {
+    if (count >= questionTime) {
+        timeLeft.innerHTML = `Time Left: ${count}`;
+        progressBar.style.width = progressUnit * count + 'px';
+        count--;
+
+    } else if (questionTime === 0) {
+        timeLeft.innerHTML = "Time Up. Go to the next question!";
+        timeLeft.style.width = '150px';
+        optionA.setAttribute('disabled', 'disabled');
+        optionB.setAttribute('disabled', 'disabled');
+        optionC.setAttribute('disabled', 'disabled');
+        optionD.setAttribute('disabled', 'disabled');
+        console.log('time is up')
+        clearInterval(timer)
+    }
+}
+*/
+
+
 
 // results page displaying user scare and play aging option
 function finalScore() {
