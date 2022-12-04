@@ -2,19 +2,19 @@
 let startButton = document.getElementById('start-btn');
 let startPage = document.getElementById('start-container');
 let userName = document.getElementById('username');
-let message = document.getElementById('message')
+let message = document.getElementById('message');
 let results = document.getElementById('score-page');
 let quizArea = document.getElementById('quiz-container');
 let displayQuestion = document.getElementById('question-area');
 let answer = document.getElementById('answers');
 let nextBtn = document.getElementById('next');
-let nextContainer = document.getElementById('next-conatiner')
+let nextContainer = document.getElementById('next-conatiner');
 let optionA = document.getElementById('answer-a');
 let optionB = document.getElementById('answer-b');
 let optionC = document.getElementById('answer-c');
 let optionD = document.getElementById('answer-d');
 let progressBar = document.getElementById('progress-bar');
-let timeLeft = document.getElementById('time')
+let timeLeft = document.getElementById('time');
 let playAgainBtn = document.getElementById('play-again');
 let questionCounter = document.getElementById('question-counter');
 let score = document.getElementById('score');
@@ -32,18 +32,20 @@ let messageEmpty = "Please enter a username without using spaces or numbers";
 let characterMessage = "Username needs to be more than 3 characters";
 
 // validating username
-
 function checkUser() {
-
     var letters = /^[A-Za-z]+$/; //no blank spaces and numbers are accepted
-
+    //doesn't accept empty spaces
     if (!user.value.match(letters)) {
         message.innerHTML = messageEmpty;
+
+    //checks if the username is more than 3 characters
     } else if (user.value.length <= Number(3)) {
         message.innerHTML = characterMessage;
+
+    //allows username if more than 3 characters
     } else if (user.value.length >= Number(3)) {
-        console.log('hi')
-        startQuiz()
+        console.log('hi');
+        startQuiz();
     }
 
 }
@@ -55,7 +57,11 @@ startButton.onclick = () => {
 
 }
 
-//when start button is clicked
+/**
+ * runs when the username has been validated
+ * displays quiz area and hides start page
+ * allow the question to be displayed
+ */
 function startQuiz() {
     console.log('started')
     startPage.classList.add('display')
@@ -69,7 +75,11 @@ function startQuiz() {
     count = 10;
 }
 
-
+/**
+ * displays the question from the array
+ * displays answer options
+ * allows the user to pick an answer
+ */
 function showQuestions(question) {
     displayQuestion.innerText = question.question;
     optionA.innerText = question.answers[0].option;
@@ -83,11 +93,18 @@ function showQuestions(question) {
     optionD.onclick = pickAnswer;
 }
 
+/**
+ * checks answer selected by the user from the question array
+ * increments the score by 1 if correct answer
+ * disables the answer option once selected
+ * 
+ */
 function pickAnswer(event) {
     selectedAnswer = event.target;
     let chosenAnswer = selectedAnswer.innerText;
     console.log(chosenAnswer)
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
+
     if (chosenAnswer === rightAnswer) {
         userScore++;
         score.innerText = `${userScore} / 10`;
@@ -112,7 +129,7 @@ function pickAnswer(event) {
     showQuestions(quizQuestions[currentQuestionIndex]);
 }
 
-// when next button is clicked
+//when next button is clicked
 
 nextBtn.onclick = () => {
     next()
@@ -126,6 +143,11 @@ nextBtn.onclick = () => {
     }, 10);
 }
 
+/**
+ * shows next question from the quizQuestions array
+ * increments question number everytime next button is clicked
+ * when the array has dsiplayed 10 question, shows results page 
+ */
 function next() {
     currentQuestionIndex++;
     questionNumber++;
@@ -145,30 +167,38 @@ function next() {
     count = 10;
 }
 
+//when next button is clicked, resets the answer option
+//removes the correct answer color
+//removes wrong answer color
 function resetQuestionState() {
     console.log("reset")
+
     selectedAnswer.classList.remove('correct-answer')
     selectedAnswer.classList.remove('wrong-answer')
+
     optionA.removeAttribute('disabled', 'disabled');
     optionB.removeAttribute('disabled', 'disabled');
     optionC.removeAttribute('disabled', 'disabled');
     optionD.removeAttribute('disabled', 'disabled');
+
     nextBtn.classList.add('display')
 
 }
 
-// code idea taken from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1
-//create a 10 second timer for each question
+//code idea taken from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1
+//creates a 10 second timer for each question
 let questionTime = 0;
 const barWidth = 150;
-let count = 10;
+let count = 10; //10 sec countdown timer
 const progressUnit = barWidth / 10;
 
 let counter = () => {
+    //displays time left if more than 0sec left
     if (count >= questionTime) {
         timeLeft.innerHTML = `Time Left: ${count}`;
-        progressBar.style.width = progressUnit * count + 'px';
+        progressBar.style.width = progressUnit * count + 'px'; //timer bar styling
         count--
+    //stops the user from picking an answer when time is up
     } else if (questionTime === 0) {
         timeLeft.innerHTML = "Time Up. Go to the next question!";
         timeLeft.style.width = '150px';
@@ -182,29 +212,7 @@ let counter = () => {
 }
 setInterval(counter, 1000);
 
-/** 
-function counter() {
-    if (count >= questionTime) {
-        timeLeft.innerHTML = `Time Left: ${count}`;
-        progressBar.style.width = progressUnit * count + 'px';
-        count--;
-
-    } else if (questionTime === 0) {
-        timeLeft.innerHTML = "Time Up. Go to the next question!";
-        timeLeft.style.width = '150px';
-        optionA.setAttribute('disabled', 'disabled');
-        optionB.setAttribute('disabled', 'disabled');
-        optionC.setAttribute('disabled', 'disabled');
-        optionD.setAttribute('disabled', 'disabled');
-        console.log('time is up')
-        clearInterval(timer)
-    }
-}
-*/
-
-
-
-// results page displaying user scare and play aging option
+//results page displaying user scare and play aging option
 function finalScore() {
     if (userScore < 5) {
         scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
@@ -213,6 +221,7 @@ function finalScore() {
     }
 }
 
+//takes the user back to start page when play again is selected
 playAgainBtn.onclick = () => {
     console.log('startPage')
     window.location.reload();
