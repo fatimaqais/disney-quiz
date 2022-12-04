@@ -70,8 +70,7 @@ function startQuiz() {
     showQuestions(quizQuestions[currentQuestionIndex]);
     questionCounter.innerText = questionNumber;
     score.innerText = userScore;
-    nextBtn.classList.remove('display')
-
+    nextBtn.style.display = "none";
     count = 10;
 }
 
@@ -116,6 +115,7 @@ function pickAnswer(event) {
         optionB.setAttribute('disabled', 'disabled');
         optionC.setAttribute('disabled', 'disabled');
         optionD.setAttribute('disabled', 'disabled');
+        nextBtn.style.display = "block";
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('wrong-answer')
@@ -124,6 +124,7 @@ function pickAnswer(event) {
         optionB.setAttribute('disabled', 'disabled');
         optionC.setAttribute('disabled', 'disabled');
         optionD.setAttribute('disabled', 'disabled');
+        nextBtn.style.display = "block";
     }
 
     showQuestions(quizQuestions[currentQuestionIndex]);
@@ -154,17 +155,16 @@ function next() {
     if (currentQuestionIndex <= '9') {
         console.log('showing question')
         questionCounter.innerText = questionNumber;
-        //nextBtn.classList.add('display')
     } else {
         results.classList.remove('display')
         quizArea.classList.add('display')
         console.log('showing result')
-        //nextBtn.classList.add('display')
         return (currentQuestionIndex)
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     finalScore()
     count = 10;
+    nextBtn.style.display = "none";
 }
 
 //when next button is clicked, resets the answer option
@@ -207,6 +207,7 @@ let counter = () => {
         optionC.setAttribute('disabled', 'disabled');
         optionD.setAttribute('disabled', 'disabled');
         console.log('time is up')
+        nextBtn.style.display = "block";
         clearInterval(counter)
     }
 }
