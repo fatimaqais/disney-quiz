@@ -38,11 +38,11 @@ function checkUser() {
     if (!user.value.match(letters)) {
         message.innerHTML = messageEmpty;
 
-    //checks if the username is more than 3 characters
+        //checks if the username is more than 3 characters
     } else if (user.value.length <= Number(3)) {
         message.innerHTML = characterMessage;
 
-    //allows username if more than 3 characters
+        //allows username if more than 3 characters
     } else if (user.value.length >= Number(3)) {
         console.log('hi');
         startQuiz();
@@ -72,6 +72,7 @@ function startQuiz() {
     score.innerText = userScore;
     nextBtn.style.display = "none";
     count = 10;
+    startTimer();
 }
 
 /**
@@ -162,7 +163,7 @@ function next() {
         return (currentQuestionIndex)
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
-    finalScore()
+    finalScore();
     count = 10;
     nextBtn.style.display = "none";
 }
@@ -173,8 +174,10 @@ function next() {
 function resetQuestionState() {
     console.log("reset")
 
-    selectedAnswer.classList.remove('correct-answer')
-    selectedAnswer.classList.remove('wrong-answer')
+    if (selectedAnswer){
+        selectedAnswer.classList.remove('correct-answer')
+        selectedAnswer.classList.remove('wrong-answer')
+    }
 
     optionA.removeAttribute('disabled', 'disabled');
     optionB.removeAttribute('disabled', 'disabled');
@@ -192,26 +195,28 @@ const barWidth = 150;
 let count = 10; //10 sec countdown timer
 const progressUnit = barWidth / 10;
 
-let counter = () => {
-    //displays time left if more than 0sec left
-    if (count >= questionTime) {
-        timeLeft.innerHTML = `Time Left: ${count}`;
-        progressBar.style.width = progressUnit * count + 'px'; //timer bar styling
-        count--
-    //stops the user from picking an answer when time is up
-    } else if (questionTime === 0) {
-        timeLeft.innerHTML = "Time Up. Go to the next question!";
-        timeLeft.style.width = '150px';
-        optionA.setAttribute('disabled', 'disabled');
-        optionB.setAttribute('disabled', 'disabled');
-        optionC.setAttribute('disabled', 'disabled');
-        optionD.setAttribute('disabled', 'disabled');
-        console.log('time is up')
-        nextBtn.style.display = "block";
-        clearInterval(counter)
-    }
+//timer = setInterval(counter, 1000);
+function startTimer() {
+    timer = setInterval(() => {
+        //displays time left if more than 0sec left
+        if (count >= questionTime) {
+            timeLeft.innerHTML = `Time Left: ${count}`;
+            progressBar.style.width = progressUnit * count + 'px'; //timer bar styling
+            count--
+            //stops the user from picking an answer when time is up
+        } else if (questionTime === 0) {
+            timeLeft.innerHTML = "Time Up. Go to the next question!";
+            timeLeft.style.width = '150px';
+            optionA.setAttribute('disabled', 'disabled');
+            optionB.setAttribute('disabled', 'disabled');
+            optionC.setAttribute('disabled', 'disabled');
+            optionD.setAttribute('disabled', 'disabled');
+            console.log('time is up')
+            nextBtn.style.display = "block";
+        }
+    }, 1000);
 }
-setInterval(counter, 1000);
+
 
 //results page displaying user scare and play aging option
 function finalScore() {
