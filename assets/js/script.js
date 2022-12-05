@@ -93,6 +93,14 @@ function showQuestions(question) {
     optionD.onclick = pickAnswer;
 }
 
+//stops the user from selecting an answer
+function disableAnsOption() {
+    optionA.setAttribute('disabled', 'disabled');
+    optionB.setAttribute('disabled', 'disabled');
+    optionC.setAttribute('disabled', 'disabled');
+    optionD.setAttribute('disabled', 'disabled');
+}
+
 /**
  * checks answer selected by the user from the question array
  * increments the score by 1 if correct answer
@@ -112,22 +120,15 @@ function pickAnswer(event) {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('correct-answer')
         console.log('correct answer')
-        optionA.setAttribute('disabled', 'disabled');
-        optionB.setAttribute('disabled', 'disabled');
-        optionC.setAttribute('disabled', 'disabled');
-        optionD.setAttribute('disabled', 'disabled');
+        disableAnsOption();
         nextBtn.style.display = "block";
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('wrong-answer')
         console.log('wrong answer')
-        optionA.setAttribute('disabled', 'disabled');
-        optionB.setAttribute('disabled', 'disabled');
-        optionC.setAttribute('disabled', 'disabled');
-        optionD.setAttribute('disabled', 'disabled');
+        disableAnsOption();
         nextBtn.style.display = "block";
     }
-
     showQuestions(quizQuestions[currentQuestionIndex]);
 }
 
@@ -179,12 +180,7 @@ function resetQuestionState() {
         selectedAnswer.classList.remove('wrong-answer')
     }
 
-    optionA.removeAttribute('disabled', 'disabled');
-    optionB.removeAttribute('disabled', 'disabled');
-    optionC.removeAttribute('disabled', 'disabled');
-    optionD.removeAttribute('disabled', 'disabled');
-
-    nextBtn.classList.add('display')
+    disableAnsOption();
 
 }
 
@@ -194,6 +190,7 @@ let questionTime = 0;
 const barWidth = 150;
 let count = 10; //10 sec countdown timer
 const progressUnit = barWidth / 10;
+timeLeft.innerHTML = `Time Left: ${count}`;
 
 //timer = setInterval(counter, 1000);
 function startTimer() {
@@ -207,16 +204,14 @@ function startTimer() {
         } else if (questionTime === 0) {
             timeLeft.innerHTML = "Time Up. Go to the next question!";
             timeLeft.style.width = '150px';
-            optionA.setAttribute('disabled', 'disabled');
-            optionB.setAttribute('disabled', 'disabled');
-            optionC.setAttribute('disabled', 'disabled');
-            optionD.setAttribute('disabled', 'disabled');
+            disableAnsOption();
             console.log('time is up')
             nextBtn.style.display = "block";
+        } else if (selectedAnswer){
+            clearInterval(timer);
         }
     }, 1000);
 }
-
 
 //results page displaying user scare and play aging option
 function finalScore() {
