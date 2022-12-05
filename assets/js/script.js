@@ -19,6 +19,7 @@ let playAgainBtn = document.getElementById('play-again');
 let questionCounter = document.getElementById('question-counter');
 let score = document.getElementById('score');
 let scoreMessage = document.getElementById('score-message');
+let scoreImage = document.getElementById('score-img')
 
 let currentQuestionIndex = 0;
 let questionNumber = 1;
@@ -180,7 +181,10 @@ function resetQuestionState() {
         selectedAnswer.classList.remove('wrong-answer')
     }
 
-    disableAnsOption();
+    optionA.removeAttribute('disabled', 'disabled');
+    optionB.removeAttribute('disabled', 'disabled');
+    optionC.removeAttribute('disabled', 'disabled');
+    optionD.removeAttribute('disabled', 'disabled');
 
 }
 
@@ -217,6 +221,7 @@ function startTimer() {
 function finalScore() {
     if (userScore < 5) {
         scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
+        
     } else {
         scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`
     }
