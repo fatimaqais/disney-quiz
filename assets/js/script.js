@@ -221,9 +221,12 @@ function startTimer() {
 function finalScore() {
     if (userScore < 5) {
         scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
-        
+        scoreImage.classList.remove("happy-img");
+        scoreImage.classList.add("sad-img");
     } else {
         scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`
+        scoreImage.classList.add("happy-img");
+        scoreImage.classList.remove("sad-img");
     }
 }
 
