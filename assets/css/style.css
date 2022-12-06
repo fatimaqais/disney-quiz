@@ -22,6 +22,11 @@ h1 {
 }
 
 /* heading style*/
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 
 .heading {
     text-align: center;
@@ -35,11 +40,11 @@ h1 {
 .container {
     color: #150335;
     width: 80%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 50px auto;
     padding: 40px;
     text-align: center;
 }
@@ -53,6 +58,7 @@ h1 {
     background-color: rgba(112, 151, 181, 0.7);
     border-radius: 20px;
     padding: 30px;
+    width: 80%;
 }
 
 #startup-img {
@@ -213,7 +219,6 @@ h1 {
 #footer {
     width: 100%;
     background-color: rgba(112, 151, 181, 0.9);
-    margin-top: 20px;
     display: inline-block;
 }
 
