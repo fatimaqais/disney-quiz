@@ -13,24 +13,30 @@
 </head>
 
 <body>
-
+    <!-- heading for the quiz -->
     <header>
         <h1 class="heading">Disney Quiz</h1>
     </header>
 
+    <!-- container with contents for the quiz game -->
     <div class="container">
+        <!-- start container with starting page for the quiz -->
         <div id="start-container" class="main-page">
             <h2>Are you ready to start your quiz?</h2>
             <div id="startup-img"></div>
+            <!-- username input area -->
             <label for="username">Enter Username:</label>
             <input type="text" name="username" id="username" required>
             <div id="message"></div>
+            <!-- start game button -->
             <div class="btn-position">
                 <button id="start-btn" class="btn">Start Game</button>
             </div>
         </div>
 
+        <!-- quiz container with questions, answers and next button -->
         <div id="quiz-container" class="display">
+            <!-- Timer and Question numbers -->
             <div id="progress">
                 <div>
                     <div id="time"></div>
@@ -43,28 +49,34 @@
                     <div><span id="question-counter"></span><span> / 10</span></div>
                 </div>
             </div>
+            <!-- display questions from js question file -->
             <div id="question-area">Question</div>
+            <!-- displays answer options from questions js file -->
             <div id="answers">
                 <button class="answer-btn btn" id="answer-a">Option 1</button>
                 <button class="answer-btn btn" id="answer-b">Option 2</button>
                 <button class="answer-btn btn" id="answer-c">Option 3</button>
                 <button class="answer-btn btn" id="answer-d">Option 4</button>
             </div>
+            <!-- next button -->
             <div id="next-container" class="btn-position">
                 <button id="next" class="btn">Next</button>
             </div>
         </div>
 
+        <!-- final page  that displays their scores -->
         <div id="score-page" class="display">
             <div id="score-message"></div>
             <div id="score"></div>
             <div id="score-img" class="happy-img sad-img"></div>
+            <!-- play again button -->
             <div class="btn-position">
                 <button id="play-again" class="btn">Play Again</button>
             </div>
         </div>
     </div>
 
+    <!-- footer -->
     <div id="footer">
         <ul class="social-networks">
             <li><a href="https://www.linkedin.com/in/fatima-qaiser/"><i class="fa-brands fa-linkedin"></i></a></li>
@@ -72,7 +84,7 @@
         </ul>
     </div>
 
-    <!--javascript files-->
+    <!-- javascript files -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/question.js"></script>
 </body>
