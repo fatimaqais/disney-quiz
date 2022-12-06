@@ -123,7 +123,7 @@ header {
 
 /* quiz questions and answers styling */
 #quiz-container {
-    background-color: rgba(112, 151, 181, 0.7);
+    background-color: rgba(112, 151, 181, 0.9);
     border-radius: 20px;
     padding: 30px;
 }
@@ -191,10 +191,10 @@ header {
 
 /* score page */
 #score-page {
-    background-color: rgba(112, 151, 181, 0.7);
+    background-color: rgba(112, 151, 181, 0.9);
     border-radius: 20px;
     padding: 30px;
-    width: 50%;
+    width: 80%;
 }
 
 #play-again {
