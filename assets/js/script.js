@@ -34,6 +34,7 @@ let characterMessage = "Username needs to be more than 3 characters";
 
 // validating username
 function checkUser() {
+    //username validation idea taken from https://www.youtube.com/watch?v=1iw5sdQAxAY
     var letters = /^[A-Za-z]+$/; //no blank spaces and numbers are accepted
     //doesn't accept empty spaces
     if (!user.value.match(letters)) {
@@ -53,9 +54,7 @@ function checkUser() {
 
 // start quiz event listener
 startButton.onclick = () => {
-
     checkUser();
-
 }
 
 /**
@@ -68,6 +67,7 @@ function startQuiz() {
     startPage.classList.add('display')
     quizArea.classList.remove('display')
 
+    //displaying question idea taken from https://www.youtube.com/watch?v=riDzcEQbX6k&t=1353s
     showQuestions(quizQuestions[currentQuestionIndex]);
     questionCounter.innerText = questionNumber;
     score.innerText = userScore;
@@ -82,6 +82,7 @@ function startQuiz() {
  * allows the user to pick an answer
  */
 function showQuestions(question) {
+    //displaying question idea taken from https://www.youtube.com/watch?v=riDzcEQbX6k&t=1353s
     displayQuestion.innerText = question.question;
     optionA.innerText = question.answers[0].option;
     optionB.innerText = question.answers[1].option;
@@ -106,7 +107,6 @@ function disableAnsOption() {
  * checks answer selected by the user from the question array
  * increments the score by 1 if correct answer
  * disables the answer option once selected
- * 
  */
 function pickAnswer(event) {
     selectedAnswer = event.target;
@@ -176,7 +176,7 @@ function next() {
 function resetQuestionState() {
     console.log("reset")
 
-    if (selectedAnswer){
+    if (selectedAnswer) {
         selectedAnswer.classList.remove('correct-answer')
         selectedAnswer.classList.remove('wrong-answer')
     }
@@ -185,7 +185,6 @@ function resetQuestionState() {
     optionB.removeAttribute('disabled', 'disabled');
     optionC.removeAttribute('disabled', 'disabled');
     optionD.removeAttribute('disabled', 'disabled');
-
 }
 
 //code idea taken from https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1
@@ -211,7 +210,7 @@ function startTimer() {
             disableAnsOption();
             console.log('time is up')
             nextBtn.style.display = "block";
-        } else if (selectedAnswer){
+        } else if (selectedAnswer) {
             clearInterval(timer);
         }
     }, 1000);
