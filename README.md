@@ -48,3 +48,59 @@ These features are seen throughout the whole quiz game:
 - The footer is seen throughout the quiz so the user can click on the icon and access the link whenever they like. The footer links open in a new tab. It contains a GitHub link and a LinkedIn link.
 
 ![Footer](documents/images/footer.png)
+
+- __Title Icon__
+- The title shows the quiz name and it has an icon of a castle next to it.
+
+![Icon](assets/images/disney-icon.png)
+
+### Start Page
+When the user clicks on the link for the site, this is the first thing they'll see. The background image is colourful to try and match the theme of Disney movies which is usually happy. The background image is from the Disney movie 'Up'. The start page container has an image of Walt Disney studios and then an input username box for the user to enter before starting the quiz. The username is verified and then allows the user to press the start quiz button to start the game.
+
+![Full Start Page](documents/images/full-start-page.png)
+
+- __Username Input Box and Start Button__
+- This checks the user has entered enough characters to start the game. It also doesn't allow the user to leave an empty field before starting the game.
+
+- The start button only starts the quiz once the username meets the criteria.
+
+![Empty Username](documents/testing/empty-username.png)
+![Less Characters](documents/testing/few-characters.png)
+
+### Quiz Page
+When the user has started the quiz, they'll see a timer with the question number and the question with its answer option. They'll see the next button once they have selected an answer or when the time is up.
+
+![Full Quiz Page](documents/images/full-quiz-page.png)
+
+- __Timer__
+- The timer displays the time in number as well as a meter that goes down with the time left.
+
+![Timer](documents/images/timer.png)
+![Time Up](documents/images/time-up.png)
+
+- __Question Number__
+- The question number is displayed in the top corner to show the user what question number they're on.
+
+![Question Number](documents/images/question-nmbr.png)
+
+- __Question and Answer Options__
+- The question is displayed on the quiz which is fetched from the question.js file. It displays 4 options from which only one answer is correct. If the user's answer is correct, the selected option changes to green but if it is wrong it changes to red.
+- Once an answer is selected the next button is displayed. Or if the time is up the next button is displayed.
+
+![question and answer](documents/images/question-answer.png)
+
+### Score Page
+Once 10 questions are answered by the user, the score page is displayed. If the user has answered more than 5 questions correctly, a congratulations message is displayed with a happy gif. If the user gets less than 5 questions right a try again message is displayed with a sad gif.
+
+![Full Score Page](documents/images/full-score-page.png)
+
+- Gif displayed when less than 5 questions are answered correctly.
+
+![sad gif](documents/images/low-score.png)
+
+- Play Again button takes the user back to the start page.
+
+### Features Left to Implement
+- I would like to add different difficulties for users where they can answer more than 10 questions if a higher difficulty level is selected.
+- I would also like to add different categories in the future where people can choose to play quizzes related to the movie/show they like.
+
