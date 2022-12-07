@@ -7,7 +7,7 @@
 }
 
 html {
-    background: url("../images/background.jpg") no-repeat fixed;
+    background: url("../images/background.jpg") no-repeat;
     background-size: cover;
 }
 
@@ -101,7 +101,7 @@ header {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 4px 4px rgba(0 0 0/ 0.5);
+    box-shadow: 4px 4px rgba(15 8 75/ 0.5);
     transform: scale(1.1)
 }
 
