@@ -104,3 +104,20 @@ Once 10 questions are answered by the user, the score page is displayed. If the 
 - I would like to add different difficulties for users where they can answer more than 10 questions if a higher difficulty level is selected.
 - I would also like to add different categories in the future where people can choose to play quizzes related to the movie/show they like.
 
+## __Technologies Used__
+
+### Languages Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+### Frameworks, Libraries & Programs Used
+
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframes for this project.
+- [Git](https://git-scm.com/) was used for version control.
+- [Github](https://github.com/) was used to save and store the project's code.
+- [Google Fonts](https://fonts.google.com/) was used to import the fonts used on the website.
+- [Font Awesome](https://fontawesome.com/) was used for the icons on this page.
+- [Flaticon](https://www.flaticon.com/) was used to find the icon for the title.
+- [Am I Responsive](https://ui.dev/amiresponsive) was used to get the Mockup screenshot.
