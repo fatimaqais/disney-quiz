@@ -34,3 +34,17 @@ Some colours were adjusted accordingly to improve visibility.
 
 ### __Wireframes__
 - To check out the wireframes for this project, [click here](/WIREFRAMES.md).
+
+## __Features__
+### __Common Features__
+These features are seen throughout the whole quiz game:
+
+- __Header__
+- This is present on every page and shows the name of the quiz game to the user. The header is in a cursive font so it is similar to the original Disney logo. The text is on blue background colour to increase visibility for the user.
+
+![Header](documents/images/header.png)
+
+- __Footer__
+- The footer is seen throughout the quiz so the user can click on the icon and access the link whenever they like. The footer links open in a new tab. It contains a GitHub link and a LinkedIn link.
+
+![Footer](documents/images/footer.png)
