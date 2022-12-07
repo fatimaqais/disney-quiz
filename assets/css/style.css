@@ -11,9 +11,7 @@ html {
     background-size: cover;
 }
 
-
 body {
-    /*background-color: #7097B5;*/
     font-family: 'Bree Serif', sans-serif;
 }
 
@@ -107,6 +105,7 @@ header {
     transform: scale(1.1)
 }
 
+/* display one of these classes when an answer is selected by user */
 .correct-answer {
     background-color: rgb(43, 64, 43);
 }
