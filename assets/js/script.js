@@ -44,10 +44,8 @@ function checkUser() {
 
         //allows username if more than 3 characters
     } else if (user.value.length >= Number(3)) {
-        console.log('hi');
         startQuiz();
     }
-
 }
 
 // start quiz event listener
@@ -61,7 +59,6 @@ startButton.onclick = () => {
  * allow the question to be displayed
  */
 function startQuiz() {
-    console.log('started');
     startPage.classList.add('display');
     quizArea.classList.remove('display');
 
@@ -110,22 +107,18 @@ function disableAnsOption() {
 function pickAnswer(event) {
     selectedAnswer = event.target;
     let chosenAnswer = selectedAnswer.innerText;
-    console.log(chosenAnswer);
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
 
     if (chosenAnswer === rightAnswer) {
         userScore++;
         score.innerText = `${userScore} / 10`;
-        console.log(userScore);
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('correct-answer');
-        console.log('correct answer');
         disableAnsOption();
         nextBtn.style.display = "block";
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
         selectedAnswer.classList.add('wrong-answer');
-        console.log('wrong answer');
         disableAnsOption();
         nextBtn.style.display = "block";
     }
@@ -155,12 +148,10 @@ function next() {
     currentQuestionIndex++;
     questionNumber++;
     if (currentQuestionIndex <= '9') {
-        console.log('showing question');
         questionCounter.innerText = questionNumber;
     } else {
         results.classList.remove('display');
         quizArea.classList.add('display');
-        console.log('showing result');
         return (currentQuestionIndex);
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
@@ -173,8 +164,6 @@ function next() {
 //removes the correct answer color
 //removes wrong answer color
 function resetQuestionState() {
-    console.log("reset");
-
     if (selectedAnswer) {
         selectedAnswer.classList.remove('correct-answer');
         selectedAnswer.classList.remove('wrong-answer');
@@ -207,7 +196,6 @@ function startTimer() {
             timeLeft.innerHTML = "Time Up. Go to the next question!";
             timeLeft.style.width = '150px';
             disableAnsOption();
-            console.log('time is up');
             nextBtn.style.display = "block";
         } else if (selectedAnswer) {
             clearInterval(timer);
@@ -218,11 +206,11 @@ function startTimer() {
 //results page displaying user scare and play aging option
 function finalScore() {
     if (userScore < 5) {
-        scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`
+        scoreMessage.innerText = `You answered less than 5 questions correctly! Don't give up ${user.value}. Try Again!`;
         scoreImage.classList.remove("happy-img");
         scoreImage.classList.add("sad-img");
     } else {
-        scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`
+        scoreMessage.innerText = `You answered more than 5 questions correctly! Great Job ${user.value}!`;
         scoreImage.classList.add("happy-img");
         scoreImage.classList.remove("sad-img");
     }
@@ -230,6 +218,5 @@ function finalScore() {
 
 //takes the user back to start page when play again is selected
 playAgainBtn.onclick = () => {
-    console.log('startPage');
     window.location.reload();
 };
