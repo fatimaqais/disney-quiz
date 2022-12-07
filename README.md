@@ -121,3 +121,24 @@ Once 10 questions are answered by the user, the score page is displayed. If the 
 - [Font Awesome](https://fontawesome.com/) was used for the icons on this page.
 - [Flaticon](https://www.flaticon.com/) was used to find the icon for the title.
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to get the Mockup screenshot.
+
+## __Testing__
+
+## __Deployement__
+
+This website was deployed to GitHub Pages. The steps to deploy are:
+- Log in to GitHub
+- Go to the setting for this repository.
+- Select pages in the left-hand navigation menu.
+- From the source dropdown, select the main branch and then press save.
+- The site will be deployed now. It may take a few minutes to go live.
+
+### Local Deployment
+To fork this repository, follow these steps:
+- Log in to GitHub
+- Go to the repository, https://github.com/fatimaqais/disney-quiz
+- On the top right corner, click on the button that says fork.
+
+To clone this repository, copy the command below and paste it in your terminal:
+
+- `https://github.com/fatimaqais/disney-quiz.git`
