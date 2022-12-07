@@ -6,9 +6,7 @@ let message = document.getElementById('message');
 let results = document.getElementById('score-page');
 let quizArea = document.getElementById('quiz-container');
 let displayQuestion = document.getElementById('question-area');
-let answer = document.getElementById('answers');
 let nextBtn = document.getElementById('next');
-let nextContainer = document.getElementById('next-conatiner');
 let optionA = document.getElementById('answer-a');
 let optionB = document.getElementById('answer-b');
 let optionC = document.getElementById('answer-c');
@@ -19,7 +17,7 @@ let playAgainBtn = document.getElementById('play-again');
 let questionCounter = document.getElementById('question-counter');
 let score = document.getElementById('score');
 let scoreMessage = document.getElementById('score-message');
-let scoreImage = document.getElementById('score-img')
+let scoreImage = document.getElementById('score-img');
 
 let currentQuestionIndex = 0;
 let questionNumber = 1;
@@ -55,7 +53,7 @@ function checkUser() {
 // start quiz event listener
 startButton.onclick = () => {
     checkUser();
-}
+};
 
 /**
  * runs when the username has been validated
@@ -63,11 +61,12 @@ startButton.onclick = () => {
  * allow the question to be displayed
  */
 function startQuiz() {
-    console.log('started')
-    startPage.classList.add('display')
-    quizArea.classList.remove('display')
+    console.log('started');
+    startPage.classList.add('display');
+    quizArea.classList.remove('display');
 
     //displaying question idea taken from https://www.youtube.com/watch?v=riDzcEQbX6k&t=1353s
+    //variable quizQuestion is defined in question.js file linked in the HTML file
     showQuestions(quizQuestions[currentQuestionIndex]);
     questionCounter.innerText = questionNumber;
     score.innerText = userScore;
@@ -111,22 +110,22 @@ function disableAnsOption() {
 function pickAnswer(event) {
     selectedAnswer = event.target;
     let chosenAnswer = selectedAnswer.innerText;
-    console.log(chosenAnswer)
+    console.log(chosenAnswer);
     let rightAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
 
     if (chosenAnswer === rightAnswer) {
         userScore++;
         score.innerText = `${userScore} / 10`;
-        console.log(userScore)
+        console.log(userScore);
         showQuestions(quizQuestions[currentQuestionIndex]);
-        selectedAnswer.classList.add('correct-answer')
-        console.log('correct answer')
+        selectedAnswer.classList.add('correct-answer');
+        console.log('correct answer');
         disableAnsOption();
         nextBtn.style.display = "block";
     } else {
         showQuestions(quizQuestions[currentQuestionIndex]);
-        selectedAnswer.classList.add('wrong-answer')
-        console.log('wrong answer')
+        selectedAnswer.classList.add('wrong-answer');
+        console.log('wrong answer');
         disableAnsOption();
         nextBtn.style.display = "block";
     }
@@ -136,16 +135,16 @@ function pickAnswer(event) {
 //when next button is clicked
 
 nextBtn.onclick = () => {
-    next()
+    next();
     resetQuestionState();
     setTimeout(() => {
         if (count >= questionTime) {
             timeLeft.innerHTML = `Time Left: ${count}`;
             progressBar.style.width = progressUnit * count + 'px';
-            count--
+            count--;
         }
     }, 10);
-}
+};
 
 /**
  * shows next question from the quizQuestions array
@@ -156,13 +155,13 @@ function next() {
     currentQuestionIndex++;
     questionNumber++;
     if (currentQuestionIndex <= '9') {
-        console.log('showing question')
+        console.log('showing question');
         questionCounter.innerText = questionNumber;
     } else {
-        results.classList.remove('display')
-        quizArea.classList.add('display')
-        console.log('showing result')
-        return (currentQuestionIndex)
+        results.classList.remove('display');
+        quizArea.classList.add('display');
+        console.log('showing result');
+        return (currentQuestionIndex);
     }
     showQuestions(quizQuestions[currentQuestionIndex]);
     finalScore();
@@ -174,11 +173,11 @@ function next() {
 //removes the correct answer color
 //removes wrong answer color
 function resetQuestionState() {
-    console.log("reset")
+    console.log("reset");
 
     if (selectedAnswer) {
-        selectedAnswer.classList.remove('correct-answer')
-        selectedAnswer.classList.remove('wrong-answer')
+        selectedAnswer.classList.remove('correct-answer');
+        selectedAnswer.classList.remove('wrong-answer');
     }
 
     optionA.removeAttribute('disabled', 'disabled');
@@ -197,18 +196,18 @@ timeLeft.innerHTML = `Time Left: ${count}`;
 
 //timer = setInterval(counter, 1000);
 function startTimer() {
-    timer = setInterval(() => {
+    let timer = setInterval(() => {
         //displays time left if more than 0sec left
         if (count >= questionTime) {
             timeLeft.innerHTML = `Time Left: ${count}`;
             progressBar.style.width = progressUnit * count + 'px'; //timer bar styling
-            count--
+            count--;
             //stops the user from picking an answer when time is up
         } else if (questionTime === 0) {
             timeLeft.innerHTML = "Time Up. Go to the next question!";
             timeLeft.style.width = '150px';
             disableAnsOption();
-            console.log('time is up')
+            console.log('time is up');
             nextBtn.style.display = "block";
         } else if (selectedAnswer) {
             clearInterval(timer);
@@ -231,6 +230,6 @@ function finalScore() {
 
 //takes the user back to start page when play again is selected
 playAgainBtn.onclick = () => {
-    console.log('startPage')
+    console.log('startPage');
     window.location.reload();
-}
+};
