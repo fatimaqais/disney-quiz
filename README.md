@@ -139,6 +139,19 @@ To fork this repository, follow these steps:
 - Go to the repository, https://github.com/fatimaqais/disney-quiz
 - On the top right corner, click on the button that says fork.
 
-To clone this repository, copy the command below and paste it in your terminal:
+To clone this repository, copy the command below and paste it into your terminal:
 
 - `https://github.com/fatimaqais/disney-quiz.git`
+
+## __Credits__
+
+### Code
+- The username validation code was taken from this [youtube video](https://www.youtube.com/watch?v=1iw5sdQAxAY).
+- The code idea for the timer was taken from this [page](https://www.codeexplained.dev/2018/10/create-multiple-choice-quiz-using-javascript.html?m=1).
+- The code idea to display questions from an array was taken from this [youtube video](https://www.youtube.com/watch?v=riDzcEQbX6k&t=1353s).
+### Content
+- Some of the questions for the quiz were taken from [we love quizzes site](https://www.welovequizzes.com/disney-quiz-questions-and-answers/).
+### Media
+- The title icon was taken from [flaticon](https://www.flaticon.com/)
+- The icons for about section were taken from [Font Awesome](https://fontawesome.com/)
+- The gifs and start page image were found on google images.
