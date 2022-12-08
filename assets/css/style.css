@@ -192,7 +192,6 @@ h2 {
     height: 25px;
 }
 
-
 .question-nmbr {
     display: flex;
     flex-direction: column;
@@ -264,7 +263,6 @@ li {
 
 /* for medium-small screen size 650px and down */
 @media screen and (max-width: 650px) {
-
     /* start page */
     #startup-img {
         background: url(../images/walt-disney-studios.webp) no-repeat center center;
