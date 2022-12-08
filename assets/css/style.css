@@ -216,7 +216,7 @@ h2 {
     background: url('../images/happy.gif') no-repeat center center;
     background-size: cover;
     width: 100%;
-    height: 200px;
+    height: 300px;
     position: relative;
     border-radius: 5px;
     margin: 20px auto;
@@ -226,7 +226,7 @@ h2 {
     background: url('../images/sad.gif') no-repeat center center;
     background-size: cover;
     width: 100%;
-    height: 200px;
+    height: 300px;
     position: relative;
     border-radius: 5px;
     margin: 20px auto;
@@ -263,6 +263,7 @@ li {
 
 /* for medium-small screen size 650px and down */
 @media screen and (max-width: 650px) {
+
     /* start page */
     #startup-img {
         background: url(../images/walt-disney-studios.webp) no-repeat center center;
@@ -284,6 +285,7 @@ li {
 
 /* for small screen sizes 320px and down */
 @media screen and (max-width: 320px) {
+
     /* quiz game container */
     #quiz-container {
         background-color: rgba(112, 151, 181, 0.9);
