@@ -123,6 +123,40 @@ Once 10 questions are answered by the user, the score page is displayed. If the 
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to get the Mockup screenshot.
 
 ## __Testing__
+### User Testing
+- After deploying the site, the quiz was played by family and friends to test if it is user freindly.
+- The quiz was tested on different devices such as laptop, tablet and mobile phones. The site works well on different devices and is responsive to different screen sizes.
+- The site was tested on different browsers like Chrome, Edge and Firefox. The site had no issues across all browsers. 
+- The username input box displays a very clear message if the username entered is not in the correct format.
+- The footer links work fine and open on a new page/tab.
+- The quiz works perfectly and is responsive on Safari as well.
+
+### Validator Testing
+- HTML
+    - No errors were found when passing the index.html page through the [W3C validator](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Ffatimaqais.github.io%2Fdisney-quiz%2F).
+
+![index.html](documents/testing/html-testing.png)
+
+- CSS 
+    - No errors were found when passing the code from the stylesheet through the official Jigsaw validator.
+
+![Jigsaw validator](documents/testing/css-testing.png)
+
+- JavaScript
+    - No errors were found when passing the script.js file through the official [JSHint validator](https://jshint.com/)
+    - When validating the script.js file, it shows that there is one undefined variable "quizQuestions". This variable has been defined in the question.js file and is being called internally from the HTML file.
+
+    - No errors were found when passing the question.js file through the official [JSHint validator](https://jshint.com/)
+    - When validating the question.js file, it shows that the variable "quizQuestions" is an unused variable but it is being used in the script.js file.
+
+### Performance and Accessibility Testing
+The site was tested for performance and accessibilty using Lighthouse on google chrome's developer tools.
+
+- Lighthouse testing for Desktop
+![Lighthouse Testing desktop](documents/testing/lighthouse-desktop.png)
+
+- Lighthouse testing for Mobile
+![Lighthouse Testing mobile](documents/testing/lighthouse-mobile.png)
 
 ## __Deployement__
 
