@@ -286,6 +286,16 @@ li {
 
 /* for small screen sizes 320px and down */
 @media screen and (max-width: 320px) {
+    /* quiz game container */
+    #quiz-container {
+        background-color: rgba(112, 151, 181, 0.9);
+        border-radius: 20px;
+        width: 80%;
+        margin-top: auto;
+        height: inherit;
+    }
+
+    /* answer options styling */
     .answer-btn {
         width: 80%;
         font-size: 18px;
@@ -306,14 +316,6 @@ li {
 
     .quiz-question {
         height: 200px;
-    }
-
-    #quiz-container {
-        background-color: rgba(112, 151, 181, 0.9);
-        border-radius: 20px;
-        width: 80%;
-        margin-top: auto;
-        height: inherit;
     }
 
     #progress {
