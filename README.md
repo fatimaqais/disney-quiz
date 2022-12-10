@@ -188,4 +188,8 @@ To clone this repository, copy the command below and paste it into your terminal
 ### Media
 - The title icon was taken from [flaticon](https://www.flaticon.com/)
 - The icons for about section were taken from [Font Awesome](https://fontawesome.com/)
-- The gifs and start page image were found on google images.
+- The gifs on the score page, start page image and background image was found on google images.
+    - The link for the sad gif image is: [sad gif link](https://www.icegif.com/wp-content/uploads/2021/11/icegif-1425.gif)
+    - The link for the happy gif is: [happy gif link](https://66.media.tumblr.com/29094bb92f953c1c507e56b35916ea29/c87ade020a2a9001-c8/s500x750/2c716b09022bc03a59da6b1cb85a923aea3d4cbe.gif)
+    - The backgoruound image is form the movie UP and is taken from this [link](https://wallpaperaccess.com/full/1706846.jpg)
+    - The start page image was taken from this [link](https://www.denofgeek.com/wp-content/uploads/2017/12/walt-disney-studios.jpg?fit=1920%2C1080)
